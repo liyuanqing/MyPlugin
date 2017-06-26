@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!--	<link  type="text/css" rel="stylesheet" href="#" />  -->	  
+	<script type="text/javascript" src="jquery.js" ></script>
+	<script type="text/javascript" src="jquery.tabList.js"></script>
+	<script type="text/javascript" src="jquery.toTop.js"></script>
+	<script type="text/javascript" src="jquery.tableOe.js"></script>
+	<script type="text/javascript" src="jquery.dragDrop.js"></script>
+	<script type="text/javascript" src="jquery.popup.js"></script>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		body{
+			background-color:#e0e0e0;
+		}
+	</style>
+</head>
+<body>
+<div style="padding:30px 0 0 30px">
+	<div class="popupList">
+		列表弹窗1
+	</div>
+	<div class="popupList">
+		列表弹窗2
+	</div>
+	<br/>
+	<div id="tabs">
+ 		<div>
+ 			<ul>
+ 			<li>11111</li>
+ 			<li>22222</li>
+			<li>33333</li>
+			<li>44444</li>
+ 			</ul>
+  		</div>
+ 		<div>
+ 			<div>c1111111111</div>
+ 			<div>c2222222222</div>
+			<div>c3333333333</div>
+			<div>c4444444444</div>
+ 		</div>
+	</div>
+	<br/>
+	<table id="table">
+		<tr><th>标题一</th><th>标题二</th><th>标题三</th><th>标题四</th></tr>
+		<tr><td>11</td><td>22</td><td>33</td><td>44</td></tr>
+		<tr><td>11</td><td>22</td><td>33</td><td>44</td></tr>
+		<tr><td>11</td><td>22</td><td>33</td><td>44</td></tr>
+		<tr><td>11</td><td>22</td><td>33</td><td>44</td></tr>
+		<tr><td>11</td><td>22</td><td>33</td><td>44</td></tr>
+		<tr><td>11</td><td>22</td><td>33</td><td>44</td></tr>
+		<tr><td>11</td><td>22</td><td>33</td><td>44</td></tr>
+		<tr><td>11</td><td>22</td><td>33</td><td>44</td></tr>
+	</table>
+	<br/>
+	<div id="tabs1">
+ 		<div>
+ 			<ul>
+ 			<li>11111</li>
+ 			<li>22222</li>
+			<li>33333</li>
+			<li>44444</li>
+			<li>55555</li>
+ 			</ul>
+  		</div>
+ 		<div>
+ 			<div>c1111111111</div>
+ 			<div>c2222222222</div>
+			<div>c3333333333</div>
+			<div>c4444444444</div>
+			<div>c5555555555</div>
+ 		</div>
+	</div>
+	<br/>
+	<table id="table1">
+		<tr><th>标题一</th><th>标题二</th><th>标题三</th><th>标题四</th></tr>
+		<tr><td>11</td><td>22</td><td>33</td><td>44</td></tr>
+		<tr><td>11</td><td>22</td><td>33</td><td>44</td></tr>
+		<tr><td>11</td><td>22</td><td>33</td><td>44</td></tr>
+		<tr><td>11</td><td>22</td><td>33</td><td>44</td></tr>
+		<tr><td>11</td><td>22</td><td>33</td><td>44</td></tr>
+		<tr><td>11</td><td>22</td><td>33</td><td>44</td></tr>
+		<tr><td>11</td><td>22</td><td>33</td><td>44</td></tr>
+		<tr><td>11</td><td>22</td><td>33</td><td>44</td></tr>
+	</table>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<p>bottom</p>
+</div>
+	<div id="toTop">返回顶部</div>
+</body>
+</html>
+<script>
+	$(function(){
+		$('#tabs').tabList().dragDrop();
+		$('#tabs1').tabList({navColor:'#69c',navBg:'#a44',animate:'mouseover'}).dragDrop();
+		$('#table').tableOe().dragDrop();
+		$('#table1').tableOe({odd:'#69c',even:'#ef4',thBg:'#af4'}).dragDrop();
+		$('#toTop').toTop().dragDrop();
+		
+		$('.popupList').popup({
+			type		:		'list',
+			url			:		'data.php',
+			opName		:		'派驻',
+			callback	:		function(o, i, from){
+				console.log(o.parent().find("td").eq(1).text() + '==' + i + 'from button:' + from);
+			}
+		});
+	});
+	
+</script>
