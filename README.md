@@ -1,0 +1,2 @@
+# MyPlugin
+my js plugin
